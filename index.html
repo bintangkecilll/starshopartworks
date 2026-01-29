@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Star Shop Artworks - Koleksi artwork dan poster berkualitas tinggi untuk menghias ruangan Anda. Temukan karya seni unik dan modern.">
+    <meta name="keywords" content="artwork, poster, wall art, dekorasi dinding, seni modern, star shop">
+    <meta name="author" content="Star Shop Artworks">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Star Shop Artworks - Koleksi Artwork & Poster Berkualitas">
+    <meta property="og:description"
+        content="Temukan koleksi artwork dan poster berkualitas tinggi untuk menghias ruangan Anda. Karya seni unik dan modern.">
+    <meta property="og:image" content="./assets/images/og-image.jpg">
+    <meta property="og:url" content="https://starshopartworks.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Star Shop Artworks - Koleksi Artwork & Poster Berkualitas">
+    <meta name="twitter:description"
+        content="Temukan koleksi artwork dan poster berkualitas tinggi untuk menghias ruangan Anda.">
+    <meta name="twitter:image" content="./assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+
+    <title>Star Shop Artworks - Koleksi Artwork & Poster Berkualitas</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Star Shop Artworks",
+      "description": "Koleksi artwork dan poster berkualitas tinggi",
+      "url": "https://starshopartworks.com",
+      "logo": "./assets/images/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">Star</span>
+                    </a>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+                    <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+                    <a href="#" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image left">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=1000&fit=crop"
+                        alt="Modern Artwork">
+                </div>
+
+                <div class="hero-text">
+                    <h1>Shop artworks</h1>
+                    <p>Discover unique and modern artworks to beautify your space. Premium quality posters and wall art.
+                    </p>
+                </div>
+
+                <div class="hero-image right">
+                    <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=800&fit=crop"
+                        alt="Abstract Artwork">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="filter-wrapper">
+                <span class="filter-label">Browse by category:</span>
+                <div class="filter-buttons">
+                    <button class="filter-btn active"><i class="fas fa-th"></i> All</button>
+                    <button class="filter-btn">Abstract</button>
+                    <button class="filter-btn">Minimalist</button>
+                    <button class="filter-btn">Nature</button>
+                    <button class="filter-btn">Typography</button>
+                </div>
+                <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Artworks -->
+    <section class="trending-artworks">
+        <div class="container">
+            <h2 class="section-title">Trending artworks</h2>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=800&fit=crop"
+                            alt="Abstract Shapes">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Abstract Shapes</h3>
+                        <p class="product-artist">By Modern Artist</p>
+                        <p class="product-price">Rp 150.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=800&fit=crop"
+                            alt="Coffee Vibes">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Coffee Vibes</h3>
+                        <p class="product-artist">By Urban Studio</p>
+                        <p class="product-price">Rp 120.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=600&h=800&fit=crop"
+                            alt="Plant Life">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Plant Life</h3>
+                        <p class="product-artist">By Nature Art</p>
+                        <p class="product-price">Rp 135.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&h=800&fit=crop"
+                            alt="Pink Aesthetic">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pink Aesthetic</h3>
+                        <p class="product-artist">By Pastel Dreams</p>
+                        <p class="product-price">Rp 145.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=800&fit=crop"
+                            alt="Typography Art">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Typography Art</h3>
+                        <p class="product-artist">By Letter Studio</p>
+                        <p class="product-price">Rp 110.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=800&fit=crop"
+                            alt="Floral Design">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Floral Design</h3>
+                        <p class="product-artist">By Botanical Art</p>
+                        <p class="product-price">Rp 130.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&h=800&fit=crop"
+                            alt="Number Six">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Number Six</h3>
+                        <p class="product-artist">By Minimal Type</p>
+                        <p class="product-price">Rp 125.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=800&fit=crop"
+                            alt="Geometric Art">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Geometric Art</h3>
+                        <p class="product-artist">By Shape Studio</p>
+                        <p class="product-price">Rp 140.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-grid">
+                <div class="promo-card yellow">
+                    <h3>Our combo offer for this season</h3>
+                    <p>Get amazing deals on selected artworks. Limited time offer!</p>
+                    <a href="shop.html" class="btn-promo">Shop Now</a>
+                </div>
+                <div class="promo-card image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                        alt="Living Room Setup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Blog</h2>
+
+            <div class="blog-grid">
+                <div class="blog-card large">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop"
+                        alt="Interior Design">
+                    <div class="blog-content">
+                        <span class="blog-category">Interior</span>
+                        <h3>How to choose the perfect artwork for your space</h3>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&h=600&fit=crop"
+                        alt="Modern Art">
+                    <div class="blog-content">
+                        <span class="blog-category">Art</span>
+                        <h3>Understanding modern art styles</h3>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&h=600&fit=crop"
+                        alt="Color Theory">
+                    <div class="blog-content">
+                        <span class="blog-category">Design</span>
+                        <h3>Color theory in wall art</h3>
+                    </div>
+                </div>
+
+                <div class="blog-card vertical">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&h=600&fit=crop"
+                        alt="Gallery Wall">
+                    <div class="blog-content">
+                        <span class="blog-category">Tips</span>
+                        <h3>Creating the perfect gallery wall</h3>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&h=600&fit=crop"
+                        alt="Minimalist">
+                    <div class="blog-content">
+                        <span class="blog-category">Style</span>
+                        <h3>Minimalist art for modern homes</h3>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=800&h=600&fit=crop"
+                        alt="Art Collection">
+                    <div class="blog-content">
+                        <span class="blog-category">Collection</span>
+                        <h3>Building your art collection</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner 2 -->
+    <section class="promo-banner-2">
+        <div class="container">
+            <div class="promo-grid-2">
+                <div class="promo-card-2 image">
+                    <img src="https://images.unsplash.com/photo-1557672199-6ba4b07b3a0d?w=800&h=600&fit=crop"
+                        alt="Abstract Circles">
+                </div>
+                <div class="promo-card-2 beige">
+                    <h3>Our combo offer for New year</h3>
+                    <p>Special bundles for the new year celebration</p>
+                    <a href="shop.html" class="btn-promo">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top of the Month -->
+    <section class="top-month">
+        <div class="container">
+            <h2 class="section-title">Top of the month</h2>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=800&fit=crop"
+                            alt="Colorful Abstract">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Colorful Abstract</h3>
+                        <p class="product-artist">By Color Studio</p>
+                        <p class="product-price">Rp 165.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=800&fit=crop"
+                            alt="Geometric Blue">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Geometric Blue</h3>
+                        <p class="product-artist">By Shape Art</p>
+                        <p class="product-price">Rp 155.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506259091721-347e791bab0f?w=600&h=800&fit=crop"
+                            alt="Modern Blocks">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Modern Blocks</h3>
+                        <p class="product-artist">By Block Studio</p>
+                        <p class="product-price">Rp 145.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&h=800&fit=crop"
+                            alt="Abstract Lines">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Abstract Lines</h3>
+                        <p class="product-artist">By Line Art</p>
+                        <p class="product-price">Rp 150.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title-center">Happy customers<br>happy walls</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=400&fit=crop"
+                        alt="Happy Customer">
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                        alt="Happy Customer">
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                        alt="Happy Customer">
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+                        alt="Happy Customer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe our newsletter<br>for regular update</h2>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">Star Shop Artworks</h3>
+                    <p>Discover unique and modern artworks to beautify your space. Premium quality posters and wall art.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="shop.html?category=abstract">Abstract</a></li>
+                        <li><a href="shop.html?category=minimalist">Minimalist</a></li>
+                        <li><a href="shop.html?category=nature">Nature</a></li>
+                        <li><a href="shop.html?category=typography">Typography</a></li>
+                        <li><a href="shop.html?category=geometric">Geometric</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        <li><i class="fas fa-phone"></i> +62 812-3456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@starshopartworks.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Star Shop Artworks. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/6281234567890" class="btn-whatsapp" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="btn-scroll-top" aria-label="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

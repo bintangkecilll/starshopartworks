@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Semua Gambar - Star Shop Artworks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2D3142;
+            margin-bottom: 15px;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .alert {
+            background: #FFF3CD;
+            border: 2px solid #FFD93D;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .alert h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .alert p {
+            color: #856404;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .alert ol {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .alert li {
+            margin-bottom: 8px;
+        }
+
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .image-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .image-info h3 {
+            color: #2D3142;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .image-info p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status.generated {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .status.needed {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #2D3142;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .download-all {
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+        }
+
+        .download-all:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .info-box {
+            background: #E3F2FD;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .info-box h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #1565C0;
+            line-height: 1.6;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📸 Download Semua Gambar</h1>
+        <p class="subtitle">Star Shop Artworks - Image Assets</p>
+
+        <div class="alert">
+            <h3>⚠️ PENTING: Cara Download Gambar</h3>
+            <p><strong>Gambar-gambar yang sudah di-generate tersimpan di Artifacts Panel (panel AI sebelah kanan), BUKAN
+                    di folder ini.</strong></p>
+            <p><strong>Cara Download:</strong></p>
+            <ol>
+                <li><strong>Buka Artifacts Panel</strong> di sebelah kanan layar (ikon 📎 atau "Artifacts")</li>
+                <li><strong>Scroll ke bawah</strong> untuk melihat semua gambar yang sudah di-generate</li>
+                <li><strong>Klik setiap gambar</strong> untuk melihat preview</li>
+                <li><strong>Klik kanan pada gambar</strong> → "Save image as..." atau "Download"</li>
+                <li><strong>Simpan ke folder:</strong> <code>star-shop-artworks/assets/images/</code></li>
+                <li><strong>Gunakan nama file yang sama</strong> seperti yang tertera di bawah</li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 Alternatif: Gunakan Placeholder Sementara</h3>
+            <p>Jika Anda ingin website langsung bisa dijalankan tanpa download gambar, gunakan service placeholder:</p>
+            <p>• <strong>https://via.placeholder.com/800x600.png?text=Product+1</strong></p>
+            <p>• <strong>https://placehold.co/800x600/png</strong></p>
+            <p>• <strong>https://picsum.photos/800/600</strong> (random images)</p>
+        </div>
+
+        <h2 class="section-title">✅ Gambar yang Sudah Di-generate (17 gambar)</h2>
+        <p style="color: #666; margin-bottom: 20px;">Semua gambar ini tersedia di <strong>Artifacts Panel</strong></p>
+
+        <div class="images-grid">
+            <!-- Hero Images -->
+            <div class="image-card">
+                <div class="image-placeholder">🎨</div>
+                <div class="image-info">
+                    <h3>hero-art-1.jpg</h3>
+                    <p>Abstract geometric artwork untuk hero section kiri</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🎨</div>
+                <div class="image-info">
+                    <h3>hero-art-2.jpg</h3>
+                    <p>Colorful geometric shapes untuk hero section kanan</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <!-- Product Images -->
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-1.jpg</h3>
+                    <p>Abstract shapes poster</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-3.jpg</h3>
+                    <p>Plant Life botanical poster</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-4.jpg</h3>
+                    <p>Pink aesthetic dried flowers</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-5.jpg</h3>
+                    <p>Typography motivational quote</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-6.jpg</h3>
+                    <p>Floral botanical illustration</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-7.jpg</h3>
+                    <p>Number 6 typography</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">🖼️</div>
+                <div class="image-info">
+                    <h3>product-8.jpg</h3>
+                    <p>Geometric earth tones</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <!-- Top of Month -->
+            <div class="image-card">
+                <div class="image-placeholder">⭐</div>
+                <div class="image-info">
+                    <h3>top-1.jpg</h3>
+                    <p>Colorful abstract playforms</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">⭐</div>
+                <div class="image-info">
+                    <h3>top-2.jpg</h3>
+                    <p>Geometric blue rectangles</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">⭐</div>
+                <div class="image-info">
+                    <h3>top-3.jpg</h3>
+                    <p>Modern blocks structures</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">⭐</div>
+                <div class="image-info">
+                    <h3>top-4.jpg</h3>
+                    <p>Abstract lines beige/brown</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <!-- Promo -->
+            <div class="image-card">
+                <div class="image-placeholder">🛋️</div>
+                <div class="image-info">
+                    <h3>promo-sofa.jpg</h3>
+                    <p>Modern living room with blue sofa</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">⚫</div>
+                <div class="image-info">
+                    <h3>promo-circles.jpg</h3>
+                    <p>Black circles abstract art</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <!-- Branding -->
+            <div class="image-card">
+                <div class="image-placeholder">⭐</div>
+                <div class="image-info">
+                    <h3>favicon.png</h3>
+                    <p>Star icon logo (32x32)</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder">📱</div>
+                <div class="image-info">
+                    <h3>og-image.jpg</h3>
+                    <p>Social media banner (1200x630)</p>
+                    <span class="status generated">✓ Generated</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">❌ Gambar yang Masih Perlu Dicari (Optional)</h2>
+        <p style="color: #666; margin-bottom: 20px;">Gunakan Unsplash.com, Pexels.com, atau duplicate gambar yang sudah
+            ada</p>
+
+        <div class="images-grid">
+            <div class="image-card">
+                <div class="image-placeholder" style="background: #ccc;">❓</div>
+                <div class="image-info">
+                    <h3>product-2.jpg</h3>
+                    <p>Coffee Vibes - perlu dicari atau duplicate product-1.jpg</p>
+                    <span class="status needed">⚠ Needed</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder" style="background: #ccc;">❓</div>
+                <div class="image-info">
+                    <h3>blog-1.jpg s/d blog-6.jpg</h3>
+                    <p>Blog section images - bisa duplicate dari hero/product</p>
+                    <span class="status needed">⚠ Needed</span>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="image-placeholder" style="background: #ccc;">❓</div>
+                <div class="image-info">
+                    <h3>customer-1.jpg s/d customer-4.jpg</h3>
+                    <p>Customer testimonials - bisa duplicate promo-sofa.jpg</p>
+                    <span class="status needed">⚠ Needed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 40px;">
+            <h3>🚀 Quick Fix: Duplicate Gambar yang Sudah Ada</h3>
+            <p>Untuk membuat website langsung bisa jalan, copy gambar yang sudah ada:</p>
+            <p style="margin-top: 10px;">
+                <code>cd assets/images</code><br>
+                <code>copy product-1.jpg product-2.jpg</code><br>
+                <code>copy hero-art-1.jpg blog-1.jpg</code><br>
+                <code>copy promo-sofa.jpg customer-1.jpg</code>
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 2px solid #eee;">
+            <p style="color: #666; font-size: 14px;">
+                <strong>Total Gambar Generated:</strong> 17 gambar<br>
+                <strong>Lokasi:</strong> Artifacts Panel (sebelah kanan)<br>
+                <strong>Folder Tujuan:</strong> star-shop-artworks/assets/images/
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

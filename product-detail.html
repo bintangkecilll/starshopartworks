@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detail produk artwork berkualitas tinggi dari Star Shop Artworks.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Product Detail - Star Shop Artworks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+        .breadcrumb {
+            padding: 20px 0;
+            background: var(--light-bg);
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .breadcrumb-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .breadcrumb-list a {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .breadcrumb-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-list .active {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .product-detail {
+            padding: var(--section-padding);
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: var(--light-bg);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary-color);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info-section h1 {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .product-artist {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .product-rating-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stars {
+            display: flex;
+            gap: 5px;
+            color: var(--accent-yellow);
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .product-price-detail {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 35px;
+        }
+
+        .product-features {
+            margin-bottom: 35px;
+        }
+
+        .product-features h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+        }
+
+        .features-list i {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .quantity-selector label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .quantity-controls-detail {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            font-size: 20px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--light-bg);
+        }
+
+        .qty-input {
+            width: 80px;
+            height: 50px;
+            border: none;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-add-to-cart {
+            flex: 1;
+            padding: 18px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-add-to-cart:hover {
+            background: var(--text-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            padding: 18px;
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-buy-now:hover {
+            background: #FFD000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 217, 61, 0.3);
+        }
+
+        .product-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 25px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .meta-item {
+            display: flex;
+            gap: 15px;
+            font-size: 15px;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            min-width: 100px;
+        }
+
+        .meta-value {
+            color: var(--text-light);
+        }
+
+        .related-products {
+            padding: 60px 0;
+            background: var(--light-bg);
+        }
+
+        @media (max-width: 1024px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-info-section h1 {
+                font-size: 32px;
+            }
+
+            .product-price-detail {
+                font-size: 28px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .thumbnail-images {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">Star</span>
+                    </a>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+                    <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+                    <a href="cart.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="index.html">Home</a></li>
+                <li><i class="fas fa-chevron-right"></i></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><i class="fas fa-chevron-right"></i></li>
+                <li class="active" id="productName">Product</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="mainImage"
+                            src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=1000&fit=crop"
+                            alt="Product">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active"
+                            onclick="changeImage('https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=1000&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=200&h=200&fit=crop"
+                                alt="View 1">
+                        </div>
+                        <div class="thumbnail"
+                            onclick="changeImage('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=1000&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=200&fit=crop"
+                                alt="View 2">
+                        </div>
+                        <div class="thumbnail"
+                            onclick="changeImage('https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=800&h=1000&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=200&h=200&fit=crop"
+                                alt="View 3">
+                        </div>
+                        <div class="thumbnail"
+                            onclick="changeImage('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=1000&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=200&h=200&fit=crop"
+                                alt="View 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <h1 id="productTitle">Abstract Shapes</h1>
+                    <p class="product-artist" id="productArtist">By Modern Artist</p>
+
+                    <div class="product-rating-detail">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">5.0 (45 reviews)</span>
+                    </div>
+
+                    <div class="product-price-detail" id="productPrice">Rp 150.000</div>
+
+                    <div class="product-description">
+                        <p>Artwork berkualitas tinggi dengan desain modern dan elegan. Sempurna untuk menghias ruang
+                            tamu, kamar tidur, atau kantor Anda. Dicetak dengan teknologi HD printing pada material
+                            premium yang tahan lama.</p>
+                    </div>
+
+                    <div class="product-features">
+                        <h3>Features:</h3>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Premium HD Print Quality</li>
+                            <li><i class="fas fa-check-circle"></i> Fade-resistant Ink</li>
+                            <li><i class="fas fa-check-circle"></i> Ready to Hang</li>
+                            <li><i class="fas fa-check-circle"></i> Size: 50cm x 70cm</li>
+                            <li><i class="fas fa-check-circle"></i> Frame Optional</li>
+                        </ul>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls-detail">
+                            <button class="qty-btn" onclick="decreaseQty()"><i class="fas fa-minus"></i></button>
+                            <input type="number" class="qty-input" id="quantity" value="1" min="1" readonly>
+                            <button class="qty-btn" onclick="increaseQty()"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-add-to-cart" onclick="addToCartDetail()">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn-buy-now" onclick="buyNow()">
+                            <i class="fas fa-bolt"></i> Buy Now
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">SKU:</span>
+                            <span class="meta-value" id="productSKU">ART-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Category:</span>
+                            <span class="meta-value">Abstract</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tags:</span>
+                            <span class="meta-value">Modern, Abstract, Wall Art</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Share:</span>
+                            <span class="meta-value">
+                                <a href="#" style="margin-right: 10px; color: var(--primary-color);"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="#" style="margin-right: 10px; color: var(--primary-color);"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#" style="margin-right: 10px; color: var(--primary-color);"><i
+                                        class="fab fa-pinterest-p"></i></a>
+                                <a href="#" style="color: var(--primary-color);"><i class="fab fa-whatsapp"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">Related Products</h2>
+            <div class="products-grid">
+                <div class="product-card" data-id="prod-002" data-category="typography">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop"
+                            alt="Coffee Vibes">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                            <button class="btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Coffee Vibes</h3>
+                        <p class="product-artist">By Urban Studio</p>
+                        <p class="product-price">Rp 120.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="prod-003" data-category="nature">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=400&h=500&fit=crop"
+                            alt="Plant Life">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                            <button class="btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Plant Life</h3>
+                        <p class="product-artist">By Nature Art</p>
+                        <p class="product-price">Rp 135.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="prod-004" data-category="minimalist">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=400&h=500&fit=crop"
+                            alt="Pink Aesthetic">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                            <button class="btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pink Aesthetic</h3>
+                        <p class="product-artist">By Pastel Dreams</p>
+                        <p class="product-price">Rp 145.000</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="prod-005" data-category="typography">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=500&fit=crop"
+                            alt="Typography Art">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                            <button class="btn-add-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Typography Art</h3>
+                        <p class="product-artist">By Letter Studio</p>
+                        <p class="product-price">Rp 110.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">Star Shop Artworks</h3>
+                    <p>Discover unique and modern artworks to beautify your space. Premium quality posters and wall art.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="shop.html?category=abstract">Abstract</a></li>
+                        <li><a href="shop.html?category=minimalist">Minimalist</a></li>
+                        <li><a href="shop.html?category=nature">Nature</a></li>
+                        <li><a href="shop.html?category=typography">Typography</a></li>
+                        <li><a href="shop.html?category=geometric">Geometric</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        <li><i class="fas fa-phone"></i> +62 812-3456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@starshopartworks.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Star Shop Artworks. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/6281234567890" class="btn-whatsapp" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="btn-scroll-top" aria-label="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        // Product data (in real app, this would come from database)
+        const products = {
+            'prod-001': {
+                name: 'Abstract Shapes',
+                artist: 'By Modern Artist',
+                price: 'Rp 150.000',
+                image: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=800&fit=crop',
+                sku: 'ART-001'
+            },
+            'prod-002': {
+                name: 'Coffee Vibes',
+                artist: 'By Urban Studio',
+                price: 'Rp 120.000',
+                image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=800&fit=crop',
+                sku: 'ART-002'
+            },
+            'prod-003': {
+                name: 'Plant Life',
+                artist: 'By Nature Art',
+                price: 'Rp 135.000',
+                image: 'https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=600&h=800&fit=crop',
+                sku: 'ART-003'
+            }
+        };
+
+        // Get product ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || 'prod-001';
+
+        // Load product data
+        if (products[productId]) {
+            const product = products[productId];
+            document.getElementById('productTitle').textContent = product.name;
+            document.getElementById('productArtist').textContent = product.artist;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productSKU').textContent = product.sku;
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('mainImage').src = product.image;
+        }
+
+        // Image gallery
+        function changeImage(src, element) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Quantity controls
+        function increaseQty() {
+            const input = document.getElementById('quantity');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQty() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Add to cart
+        function addToCartDetail() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const product = {
+                id: productId,
+                name: document.getElementById('productTitle').textContent,
+                price: document.getElementById('productPrice').textContent,
+                image: document.getElementById('mainImage').src,
+                artist: document.getElementById('productArtist').textContent
+            };
+
+            for (let i = 0; i < quantity; i++) {
+                globalCart.addItem(product);
+            }
+        }
+
+        // Buy now
+        function buyNow() {
+            addToCartDetail();
+            setTimeout(() => {
+                window.location.href = 'cart.html';
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

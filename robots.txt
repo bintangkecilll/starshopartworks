@@ -1,0 +1,42 @@
+# Star Shop Artworks - Robots.txt
+# https://starshopartworks.com/robots.txt
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /shop.html
+Allow: /about.html
+Allow: /blog.html
+Allow: /contact.html
+Allow: /assets/
+Allow: /*.html$
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*.xml$ 
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Sitemap location
+Sitemap: https://starshopartworks.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
