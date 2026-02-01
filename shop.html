@@ -8,7 +8,6 @@
         content="Shop koleksi artwork dan poster berkualitas tinggi dari Star Shop Artworks. Temukan karya seni yang sempurna untuk ruangan Anda.">
     <meta name="keywords" content="shop artwork, beli poster, wall art online, dekorasi dinding">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Shop - Star Shop Artworks">
     <meta property="og:description" content="Koleksi lengkap artwork dan poster berkualitas tinggi">
     <meta property="og:image" content="./assets/images/og-image.jpg">
@@ -23,10 +22,20 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Animasi Transisi untuk Filter */
+        .product-card {
+            transition: all 0.4s ease;
+        }
+        .product-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
@@ -62,7 +71,6 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1>Our Collection</h1>
@@ -70,13 +78,12 @@
         </div>
     </section>
 
-    <!-- Filter & Sort -->
     <section class="shop-filters">
         <div class="container">
             <div class="filters-wrapper">
                 <div class="filter-group">
                     <label>Category:</label>
-                    <select class="filter-select">
+                    <select class="filter-select" id="categoryFilter">
                         <option value="all">All Categories</option>
                         <option value="abstract">Abstract</option>
                         <option value="minimalist">Minimalist</option>
@@ -107,18 +114,16 @@
                 </div>
 
                 <div class="results-count">
-                    Showing <strong>24</strong> products
+                    Showing <strong id="currentCount">12</strong> products
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Grid -->
     <section class="shop-products">
         <div class="container">
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
+            <div class="products-grid" id="productGrid">
+                <div class="product-card" data-category="abstract">
                     <div class="product-badge">New</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=800&fit=crop"
@@ -143,8 +148,7 @@
                     </div>
                 </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
+                <div class="product-card" data-category="minimalist">
                     <div class="product-badge sale">Sale</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=800&fit=crop"
@@ -172,8 +176,7 @@
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card">
+                <div class="product-card" data-category="nature">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?w=600&h=800&fit=crop"
                             alt="Plant Life">
@@ -197,8 +200,7 @@
                     </div>
                 </div>
 
-                <!-- Product 4 -->
-                <div class="product-card">
+                <div class="product-card" data-category="minimalist">
                     <div class="product-badge">Trending</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&h=800&fit=crop"
@@ -223,8 +225,7 @@
                     </div>
                 </div>
 
-                <!-- Product 5 -->
-                <div class="product-card">
+                <div class="product-card" data-category="typography">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=800&fit=crop"
                             alt="Typography Art">
@@ -248,8 +249,7 @@
                     </div>
                 </div>
 
-                <!-- Product 6 -->
-                <div class="product-card">
+                <div class="product-card" data-category="nature">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=800&fit=crop"
                             alt="Floral Design">
@@ -273,8 +273,7 @@
                     </div>
                 </div>
 
-                <!-- Product 7 -->
-                <div class="product-card">
+                <div class="product-card" data-category="typography">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&h=800&fit=crop"
                             alt="Number Six">
@@ -298,8 +297,7 @@
                     </div>
                 </div>
 
-                <!-- Product 8 -->
-                <div class="product-card">
+                <div class="product-card" data-category="geometric">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=800&fit=crop"
                             alt="Geometric Art">
@@ -323,8 +321,7 @@
                     </div>
                 </div>
 
-                <!-- Repeat products for demo -->
-                <div class="product-card">
+                <div class="product-card" data-category="abstract">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=800&fit=crop"
                             alt="Colorful Abstract">
@@ -348,7 +345,7 @@
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="geometric">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=800&fit=crop"
                             alt="Geometric Blue">
@@ -372,7 +369,7 @@
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="geometric">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1506259091721-347e791bab0f?w=600&h=800&fit=crop"
                             alt="Modern Blocks">
@@ -396,7 +393,7 @@
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-category="abstract">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&h=800&fit=crop"
                             alt="Abstract Lines">
@@ -421,7 +418,6 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             <div class="pagination">
                 <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
                 <button class="page-btn active">1</button>
@@ -432,7 +428,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -502,7 +497,6 @@
         </div>
     </footer>
 
-    <!-- Floating Buttons -->
     <div class="floating-buttons">
         <a href="https://wa.me/6281234567890" class="btn-whatsapp" target="_blank" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
@@ -513,6 +507,46 @@
     </div>
 
     <script src="./assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const productCards = document.querySelectorAll('.product-card');
+            const currentCountEl = document.getElementById('currentCount');
+
+            categoryFilter.addEventListener('change', function() {
+                const selectedCategory = this.value;
+                let visibleCount = 0;
+
+                productCards.forEach(card => {
+                    const productCategory = card.getAttribute('data-category');
+                    
+                    if (selectedCategory === 'all' || selectedCategory === productCategory) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Update text jumlah produk
+                currentCountEl.textContent = visibleCount;
+            });
+
+            // Logika Scroll to Top
+            const btnScrollTop = document.querySelector('.btn-scroll-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    btnScrollTop.style.display = "flex";
+                } else {
+                    btnScrollTop.style.display = "none";
+                }
+            });
+
+            btnScrollTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 
 </html>
